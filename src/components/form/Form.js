@@ -48,8 +48,8 @@ function Form() {
     }
     
     return ( <>
-        {/* {isShow && <Modal onClose={closeHandler} nama={nama} tglLahir={tglLahir} alamat={alamat} hp={hp} jenisKelamin={jenisKelamin} agama={agama} />} */}
-        {isShow && <Modal onClose={closeHandler} /> && <Card onClose={closeHandler} nama={nama} tglLahir={tglLahir} alamat={alamat} hp={hp} jenisKelamin={jenisKelamin} agama={agama} />}
+        {isShow && <Modal onClose={closeHandler} nama={nama} tglLahir={tglLahir} alamat={alamat} hp={hp} jenisKelamin={jenisKelamin} agama={agama} />}
+        {/* {isShow && <Modal onClose={closeHandler} /> && <Card onClose={closeHandler} nama={nama} tglLahir={tglLahir} alamat={alamat} hp={hp} jenisKelamin={jenisKelamin} agama={agama} />} */}
         
         <div className="row">
             <div className="col-md-12">
