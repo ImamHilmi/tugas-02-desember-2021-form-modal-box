@@ -7,7 +7,8 @@ const Modal = (props) => {
     <>
         <div className="backdrop" onClick={props.onClose}>
             <div className="modalC">
-            <Card nama={props.nama} tglLahir={props.tglLahir} alamat={props.alamat} hp={props.hp} jenisKelamin={props.jenisKelamin} agama={props.agama} />
+                <h1>Profile Info</h1>
+                <Card nama={props.nama} tglLahir={props.tglLahir} alamat={props.alamat} hp={props.hp} jenisKelamin={props.jenisKelamin} agama={props.agama} />
             </div>     
         </div>
             

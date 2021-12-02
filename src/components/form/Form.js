@@ -75,7 +75,7 @@ function Form() {
 
                         <div id="kelamin">
                             <p>Pilih jenis Kelamin :</p>
-                                <input onChange={jenisKelaminHandler} type="radio" id="laki" name="jenisKelamin" value="Laki" checked={jenisKelamin==='Laki'} />
+                                <input onChange={jenisKelaminHandler} type="radio" id="laki" name="jenisKelamin" value="Laki - Laki" checked={jenisKelamin==='Laki - Laki'} />
                                 <label forHtml="laki">Laki - Laki</label>
                                 <input onChange={jenisKelaminHandler} type="radio" id="perempuan" name="jenisKelamin" value="Perempuan" checked={jenisKelamin==='Perempuan'} />
                                 <label forHtml="perempuan">Perempuan</label><br />
