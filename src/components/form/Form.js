@@ -1,8 +1,7 @@
 // import './form.css'
-
 import { useState } from "react";
 import Modal from '../modal/Modal';
-import Card from '../card/Card';
+// import CardList from '../card/CardList';
 
 function Form() {
     const [nama, setNama] = useState("");
@@ -12,6 +11,12 @@ function Form() {
     const [jenisKelamin, setJenisKelamin] = useState("");
     const [agama, setAgama] = useState("");
     const [isShow, setIsShow] = useState(false);
+    const [data, setData] = useState([]);
+
+    const resetHandler = () => {
+        setData([]);
+        setIsShow(false);
+    }
 
     function nameHandler(event) {
         setNama(event.target.value);
@@ -37,19 +42,18 @@ function Form() {
         setAgama(event.target.value);
         console.log(event.target.name);
     }
-
     const submitHandler = (event) => {
         event.preventDefault();
         setIsShow(true);
+        setData([...data, {nama,tglLahir,alamat,hp,jenisKelamin,agama}]);
     }
-
-    const closeHandler = (event) => {
+    const closeHandler = () => {
         setIsShow(false)
     }
     
     return ( <>
-        {isShow && <Modal onClose={closeHandler} nama={nama} tglLahir={tglLahir} alamat={alamat} hp={hp} jenisKelamin={jenisKelamin} agama={agama} />}
-        {/* {isShow && <Modal onClose={closeHandler} /> && <Card onClose={closeHandler} nama={nama} tglLahir={tglLahir} alamat={alamat} hp={hp} jenisKelamin={jenisKelamin} agama={agama} />} */}
+      
+        {isShow && <Modal onClose={closeHandler} data={data} nama={nama} tglLahir={tglLahir} alamat={alamat} hp={hp} jenisKelamin={jenisKelamin} agama={agama} onClose1={resetHandler} />}
         
         <div className="row">
             <div className="col-md-12">
@@ -93,12 +97,12 @@ function Form() {
                         <input type="checkbox" id="setuju" name="setuju" value="setuju" />
                         <label forHtml="setuju"> Apakah data tersebut sudah benar ?</label><br />
 
-
                             <button id="button" type="submit" className="button">
                                 Preview
                             </button>
 
                     </form>
+                    {/* {data.map((dataList, index) => {return(<CardList nama={dataList.nama} tglLahir={dataList.tglLahir} alamat={dataList.alamat} hp={dataList.hp} jenisKelamin={dataList.jenisKelamin} agama={dataList.agama} />)})} */}
                 </div>
             </div>
         </div>
