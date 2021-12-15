@@ -10,7 +10,19 @@ const Modal = (props) => {
         <div className="backdrop" onClick={props.onClose}>
             <div className="modalC">
                 <h1>Profile Info</h1>
-                {props.data.map((dataList, index) => {return(<CardList nama={dataList.nama} tglLahir={dataList.tglLahir} alamat={dataList.alamat} hp={dataList.hp} jenisKelamin={dataList.jenisKelamin} agama={dataList.agama} />)})} 
+                {/* {props.data.map((dataList, index) => {
+                    return(<CardList nama={dataList.nama} tglLahir={dataList.tglLahir} alamat={dataList.alamat} hp={dataList.hp} jenisKelamin={dataList.jenisKelamin} agama={dataList.agama} />)})}  */}
+
+                {/* {props.data.map(dataList => (
+                    <div key={dataList.key}>
+                    (<CardList nama={dataList.nama} tglLahir={dataList.tglLahir} alamat={dataList.alamat} hp={dataList.hp} jenisKelamin={dataList.jenisKelamin} agama={dataList.agama} foto={dataList.foto} />)
+                    </div>
+                    ))}  */}
+                {props.data.map(dataList => (
+                    <div key={dataList.key}>
+                    (<CardList nama={dataList.nama} tglLahir={dataList.tglLahir} alamat={dataList.alamat} hp={dataList.hp} jenisKelamin={dataList.jenisKelamin} agama={dataList.agama} />)
+                    </div>
+                    ))} 
 
                 <button onClick={props.onClose1} type="button" className="button" > Reset </button>      
 

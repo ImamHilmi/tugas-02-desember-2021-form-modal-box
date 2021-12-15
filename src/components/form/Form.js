@@ -12,12 +12,17 @@ function Form() {
     const [agama, setAgama] = useState("");
     const [isShow, setIsShow] = useState(false);
     const [data, setData] = useState([]);
+    // const [foto, setFoto] = useState('');
 
     const resetHandler = () => {
         setData([]);
         setIsShow(false);
     }
-
+    // const fotoHandler = (event) => {
+    //     let src = setFoto(URL.createObjectURL(event.target.files[0]));
+    //     setData(foto => ({...foto, name: src}));
+    //     console.log(event.target.name);
+    // }
     function nameHandler(event) {
         setNama(event.target.value);
         console.log(event.target.name);
@@ -45,7 +50,9 @@ function Form() {
     const submitHandler = (event) => {
         event.preventDefault();
         setIsShow(true);
-        setData([...data, {nama,tglLahir,alamat,hp,jenisKelamin,agama}]);
+        // setData([...data, {"key": data.length + 1,nama,tglLahir,alamat,hp,jenisKelamin,agama,foto}]);
+        setData([...data, {"key": data.length + 1,nama,tglLahir,alamat,hp,jenisKelamin,agama}]);
+        console.log(data);
     }
     const closeHandler = () => {
         setIsShow(false)
@@ -53,6 +60,7 @@ function Form() {
     
     return ( <>
       
+        {/* {isShow && <Modal onClose={closeHandler} data={data} nama={nama} tglLahir={tglLahir} alamat={alamat} hp={hp} jenisKelamin={jenisKelamin} agama={agama} foto={foto} onClose1={resetHandler} />} */}
         {isShow && <Modal onClose={closeHandler} data={data} nama={nama} tglLahir={tglLahir} alamat={alamat} hp={hp} jenisKelamin={jenisKelamin} agama={agama} onClose1={resetHandler} />}
         
         <div className="row">
@@ -65,26 +73,26 @@ function Form() {
                  <div className="card-body"></div>
 
                     <form id ="form" className="inputan" onSubmit={submitHandler}>
-                        <label forHtml="nama">Nama : </label><br />
+                        <label htmlFor="nama">Nama : </label><br />
                         <input onChange={nameHandler} value={nama} type="text" id="nama" className="input1" name="nama" placeholder="Masukkan Nama Kalian . . ." /><br />
 
-                        <label forHtml="tanggallahir">Tanggal Lahir : </label><br />
+                        <label htmlFor="tanggallahir">Tanggal Lahir : </label><br />
                         <input onChange={tglLahirHandler} value={tglLahir} type="date" id="tanggal" name="tanggallahir" /><br />
 
-                        <label forHtml="alamat">Alamat : </label><br />
+                        <label htmlFor="alamat">Alamat : </label><br />
                         <input onChange={alamatHandler} value={alamat} type="textarea" id="alamat" name="alamat" placeholder="Masukkan Alamat Kalian . . ." /><br />
                         
-                        <label forHtml="hp">Nomor HP : </label><br />
+                        <label htmlFor="hp">Nomor HP : </label><br />
                         <input onChange={hpHandler} value={hp} type="Number" id="hp" name="hp" placeholder="Masukkan Nomor HP Kalian . . ." /><br />
 
                         <div id="kelamin">
                             <p>Pilih jenis Kelamin :</p>
                                 <input onChange={jenisKelaminHandler} type="radio" id="laki" name="jenisKelamin" value="Laki - Laki" checked={jenisKelamin==='Laki - Laki'} />
-                                <label forHtml="laki">Laki - Laki</label>
+                                <label htmlFor="laki">Laki - Laki</label>
                                 <input onChange={jenisKelaminHandler} type="radio" id="perempuan" name="jenisKelamin" value="Perempuan" checked={jenisKelamin==='Perempuan'} />
-                                <label forHtml="perempuan">Perempuan</label><br />
+                                <label htmlFor="perempuan">Perempuan</label><br />
                         </div>
-                        <label forHtml="agama">Agama : </label><br />
+                        <label htmlFor="agama">Agama : </label><br />
                         <select onChange={agamaHandler} value={agama} name="agama" id="agama">
                             <option value="pilih">Pilih Salah Satu</option>
                             <option value="islam">Islam</option>
@@ -94,15 +102,16 @@ function Form() {
                             <option value="budha">Budha</option>
                         </select><br />
 
+                        {/* <input type='file' name='foto' onChange={fotoHandler} /> */}
+
                         <input type="checkbox" id="setuju" name="setuju" value="setuju" />
-                        <label forHtml="setuju"> Apakah data tersebut sudah benar ?</label><br />
+                        <label htmlFor="setuju"> Apakah data tersebut sudah benar ?</label><br />
 
                             <button id="button" type="submit" className="button">
                                 Preview
                             </button>
 
                     </form>
-                    {/* {data.map((dataList, index) => {return(<CardList nama={dataList.nama} tglLahir={dataList.tglLahir} alamat={dataList.alamat} hp={dataList.hp} jenisKelamin={dataList.jenisKelamin} agama={dataList.agama} />)})} */}
                 </div>
             </div>
         </div>
