@@ -52,6 +52,12 @@ function Form() {
         setIsShow(true);
         // setData([...data, {"key": data.length + 1,nama,tglLahir,alamat,hp,jenisKelamin,agama,foto}]);
         setData([...data, {"key": data.length + 1,nama,tglLahir,alamat,hp,jenisKelamin,agama}]);
+        setNama('');
+        setTglLahir('');
+        setAlamat('');
+        setHp('');
+        setJenisKelamin('');
+        setAgama('');
         console.log(data);
     }
     const closeHandler = () => {
